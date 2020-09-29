@@ -1,6 +1,6 @@
-# 01 Everpobre: un Evernote para pobres realizado en Flutter
+# 01 Everpobre
 
-Pequeña aplicación que simula una lista de Notebooks con Notes dentro de cada uno de ellos.
+Everpobre es la versión Evernote para pobres
 
 ## Tecnologías
 
