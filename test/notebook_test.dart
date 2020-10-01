@@ -9,17 +9,6 @@ void main() {
     });
   });
 
-  group("removal", () {
-    test("remove by index", () {
-      final Note n = Note("hola");
-      Notebook.shared.add(n);
-      expect(() => Notebook.shared.removeAt(0), returnsNormally);
-
-      Notebook.shared.add(n);
-      expect(Notebook.shared.removeAt(0), n);
-    });
-  });
-
   group("contents", () {
     test("length behaves correctly", () {
       final nb = Notebook();
@@ -29,11 +18,21 @@ void main() {
       expect(nb.length, 0);
 
       nb2.add(n);
-
       expect(nb2.length, 1);
 
       nb2.remove(n);
       expect(nb2.length, 0);
+    });
+  });
+
+  group("removal", () {
+    test("remove by index", () {
+      final Note n = Note("hola");
+      Notebook.shared.add(n);
+      expect(() => Notebook.shared.removeAt(0), returnsNormally);
+
+      Notebook.shared.add(n);
+      expect(Notebook.shared.removeAt(0), n);
     });
   });
 }

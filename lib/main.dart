@@ -14,8 +14,8 @@ class TreeBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.light().copyWith(
-        primaryColor: Color(0xFF388E3C),
-        accentColor: Color(0xFFFFC107),
+        primaryColor: const Color(0xFF388E3C),
+        accentColor: const Color(0xFFFFC107),
       ),
       title: TextResources.appName,
       home: Scaffold(

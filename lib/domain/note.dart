@@ -41,6 +41,14 @@ class Note {
     }
   }
 
+  // Dos fechas que se consideran iguales (con un precision) y que se
+  // verifica con el operator== deben devolver el mismo hashCode
+  // El patrón del pringao -> Proxy, le endosas el trabajo que tu no
+  // quieres hacer
+  // año-mes-dia-hora-min-seg--decseg--milseg, si considero hasta los
+  // segundos, ambos DateTime son iguales, eso es lo que hace el proxy
+  // 2020-8-3-14-53-09--12-900
+  // 2020-8-3-14-53-09--2-32
   @override
   int get hashCode {
     final proxy = DateTime(
