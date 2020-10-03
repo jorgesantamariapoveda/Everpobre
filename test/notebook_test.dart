@@ -28,6 +28,9 @@ void main() {
   group("removal", () {
     test("remove by index", () {
       final Note n = Note("hola");
+
+      // Se empaqueta dentro de un clousre porque queremos evaluar algo
+      // que puede lanzar una excepción
       Notebook.shared.add(n);
       expect(() => Notebook.shared.removeAt(0), returnsNormally);
 

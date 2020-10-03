@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:everpobre/domain/note.dart';
 
 final Notebook model = Notebook.testDataBuilder();
+
 void main() {
   runApp(TreeBuilder());
 }
@@ -12,6 +13,8 @@ void main() {
 class TreeBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // ThemeData.light().copyWith, hace una copia y sobre ella hago
+    // las modificaciones que quiera
     return MaterialApp(
       theme: ThemeData.light().copyWith(
         primaryColor: const Color(0xFF388E3C),
