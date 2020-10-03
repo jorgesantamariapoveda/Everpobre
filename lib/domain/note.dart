@@ -1,7 +1,7 @@
 import 'package:everpobre/extensions/date_time.dart';
 
 class Note {
-  // Fields
+  //! Properties
   String _body = "";
 
   String get body => _body;
@@ -15,15 +15,16 @@ class Note {
   DateTime _modificationDate;
   DateTime get modificationDate => _modificationDate;
 
-  // Constructores
+  //! Constructors
   Note(String contents) : _body = contents {
     _modificationDate = DateTime.now();
     _creationDate = DateTime.now();
   }
 
+  //! Public functions
   Note.empty() : this("");
 
-  // Object Protocol
+  //! Object Protocol
   @override
   String toString() {
     return "<$runtimeType: $body>";

@@ -6,17 +6,20 @@ class Notebook with ChangeNotifier {
   //! Properties
   // TODO el singleton habrá que borrarlo, quizás nos sirva la idea
   // para crear un notebooks
-  static final shared = Notebook();
+  //static final shared = Notebook();
 
+  final String _title;
   final List<Note> _notes = [];
 
   int get length => _notes.length;
 
   //! Constructores
-  Notebook(); // de forma ímplicita se genera solo salvo cuando se crean más constructores
+  Notebook(String title) : _title = title;
+  /*
   Notebook.testDataBuilder() {
     _notes.addAll(List.generate(10, (index) => Note("Item $index")));
   }
+  */
 
   //! Accesores
   Note operator [](int index) {
@@ -58,6 +61,20 @@ class Notebook with ChangeNotifier {
     return "<$runtimeType: $length notes>";
   }
 
-  // TODO Implementar el operator== y el hashcode porque voy a tener varios
-  // notebooks
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    } else {
+      return other is Notebook &&
+          other._title == _title &&
+          other._notes.length == _notes.length &&
+          other._notes == _notes;
+    }
+  }
+
+  @override
+  int get hashCode {
+    return _title.hashCode + _notes.hashCode;
+  }
 }

@@ -4,38 +4,39 @@ import 'package:everpobre/domain/note.dart';
 
 void main() {
   group("construction", () {
-    test("Can access the shared single notebook singleton", () {
-      expect(Notebook.shared, isNotNull);
+    test("Constructor title", () {
+      expect(Notebook("Notebook"), isNotNull);
     });
   });
 
   group("contents", () {
     test("length behaves correctly", () {
-      final nb = Notebook();
-      final nb2 = Notebook();
-      final n = Note("Lorem Ipsum");
+      final nb1 = Notebook("nb1");
+      final nb2 = Notebook("nb2");
+      final note = Note("Lorem Ipsum");
 
-      expect(nb.length, 0);
+      expect(nb1.length, 0);
 
-      nb2.add(n);
+      nb2.add(note);
       expect(nb2.length, 1);
 
-      nb2.remove(n);
+      nb2.remove(note);
       expect(nb2.length, 0);
     });
   });
 
   group("removal", () {
     test("remove by index", () {
-      final Note n = Note("hola");
+      final Note note = Note("hola");
+      final Notebook nb = Notebook("nb");
 
       // Se empaqueta dentro de un clousre porque queremos evaluar algo
       // que puede lanzar una excepción
-      Notebook.shared.add(n);
-      expect(() => Notebook.shared.removeAt(0), returnsNormally);
+      nb.add(note);
+      expect(() => nb.removeAt(0), returnsNormally);
 
-      Notebook.shared.add(n);
-      expect(Notebook.shared.removeAt(0), n);
+      nb.add(note);
+      expect(nb.removeAt(0), note);
     });
   });
 }
