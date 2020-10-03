@@ -8,18 +8,18 @@ class Notebook with ChangeNotifier {
   // para crear un notebooks
   //static final shared = Notebook();
 
-  final String _title;
+  String _title = "";
   final List<Note> _notes = [];
 
   int get length => _notes.length;
+  String get title => _title;
 
   //! Constructores
   Notebook(String title) : _title = title;
-  /*
-  Notebook.testDataBuilder() {
-    _notes.addAll(List.generate(10, (index) => Note("Item $index")));
+  Notebook.testDataBuilder(String title) {
+    _title = title;
+    _notes.addAll(List.generate(5, (index) => Note("Note $index + 1")));
   }
-  */
 
   //! Accesores
   Note operator [](int index) {
