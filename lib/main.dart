@@ -1,5 +1,6 @@
 import 'package:everpobre/Scenes/notebooks_scene.dart';
 import 'package:everpobre/Scenes/notes_scene.dart';
+import 'package:everpobre/domain/note.dart';
 import 'package:everpobre/domain/notebook.dart';
 import 'package:everpobre/domain/notebooks.dart';
 import 'package:everpobre/route/arguments_route.dart';
@@ -66,7 +67,7 @@ class NotebookWidget extends StatelessWidget {
       body: NotesListView(arguments.notebook),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          model.add(Notebook(TextResources.newNotebook));
+          arguments.notebook.add(Note(TextResources.newNote));
         },
         child: const Icon(Icons.add),
       ),
