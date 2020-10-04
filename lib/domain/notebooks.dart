@@ -35,4 +35,10 @@ class Notebooks with ChangeNotifier {
     _notebooks.insert(0, notebook);
     notifyListeners();
   }
+
+  Notebook removeAt(int index) {
+    final Notebook n = _notebooks.removeAt(index);
+    notifyListeners();
+    return n;
+  }
 }

@@ -51,16 +51,47 @@ class _NotebooksListViewState extends State<NotebooksListView> {
     return ListView.builder(
       itemCount: widget._model.length,
       itemBuilder: (context, index) {
-        return Card(
-          child: ListTile(
-            leading: const FlutterLogo(),
-            title: Text(widget._model[index].title),
-            subtitle: Text(_getTextNotebook(widget._model[index])),
-            onTap: () => print("celda ontap222"),
-            trailing: const Icon(Icons.arrow_forward_ios),
-          ),
-        );
+        return NotebookWidgetCustom(widget._model, index);
       },
+    );
+  }
+}
+
+class NotebookWidgetCustom extends StatefulWidget {
+  //! Properties
+  final Notebooks notebooks;
+  final int index;
+
+  //! Constructors
+  const NotebookWidgetCustom(this.notebooks, this.index);
+
+  @override
+  _NotebookWidgetCustomState createState() => _NotebookWidgetCustomState();
+}
+
+class _NotebookWidgetCustomState extends State<NotebookWidgetCustom> {
+  @override
+  Widget build(BuildContext context) {
+    return Dismissible(
+      key: UniqueKey(),
+      background: Container(
+        color: Colors.red,
+      ),
+      onDismissed: (direction) {
+        widget.notebooks.removeAt(widget.index);
+        setState(() {});
+        Scaffold.of(context).showSnackBar(
+            SnackBar(content: Text(TextResources.notebookDeleted)));
+      },
+      child: Card(
+        child: ListTile(
+          leading: const FlutterLogo(),
+          title: Text(widget.notebooks[widget.index].title),
+          subtitle: Text(_getTextNotebook(widget.notebooks[widget.index])),
+          onTap: () => print("celda ontap222"),
+          trailing: const Icon(Icons.arrow_forward_ios),
+        ),
+      ),
     );
   }
 }
