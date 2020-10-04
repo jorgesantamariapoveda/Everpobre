@@ -38,7 +38,7 @@ class _NoteWidgetState extends State<NoteWidget> {
           child: Column(
             children: [
               TextField(
-                decoration: const InputDecoration(labelText: "Body"),
+                decoration: InputDecoration(labelText: TextResources.body),
                 controller: bodyTestController,
               ),
               Row(

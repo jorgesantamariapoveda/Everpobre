@@ -25,8 +25,18 @@ Everpobre es la versión Evernote para pobres. Simula una lista de Notebooks y d
 
 ##### Capturas de pantallas iOS
 
-![signin](./episode.png "Episodes")
+![c1](./screens/nb1ios.png "Notebooks1")
+![c2](./screens/notes1ios.png "Notes1")
+![c3](./screens/noteios.png "Note")
+![c4](./screens/notes2ios.png "Notes2")
+![c5](./screens/notes3ios.png "Notes3")
+![c6](./screens/nb2ios.png "Notebooks2")
 
 ##### Capturas de pantallas Android
 
-![signin](./episode.png "Episodes")
+![c1a](./screens/nb1and.png "Notebooks1")
+![c2a](./screens/notes1and.png "Notes1")
+![c3a](./screens/noteand.png "Note")
+![c4a](./screens/notes2and.png "Notes2")
+![c5a](./screens/notes3and.png "Notes3")
+![c6a](./screens/nb2and.png "Notebooks2")

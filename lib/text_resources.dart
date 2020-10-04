@@ -11,4 +11,5 @@ abstract class TextResources {
   static String empty = "Empty";
   static String cancel = "Cancel";
   static String ok = "Ok";
+  static String body = "Body";
 }
