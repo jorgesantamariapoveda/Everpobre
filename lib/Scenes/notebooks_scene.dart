@@ -1,8 +1,10 @@
 import 'package:everpobre/domain/notebooks.dart';
 import 'package:everpobre/domain/notebook.dart';
+import 'package:everpobre/route/arguments_route.dart';
 import 'package:everpobre/text_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:everpobre/main.dart';
 
 class NotebooksListView extends StatefulWidget {
   //! Properties
@@ -88,7 +90,13 @@ class _NotebookWidgetCustomState extends State<NotebookWidgetCustom> {
           leading: const FlutterLogo(),
           title: Text(widget.notebooks[widget.index].title),
           subtitle: Text(_getTextNotebook(widget.notebooks[widget.index])),
-          onTap: () => print("celda ontap222"),
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              NotebookWidget.routeName,
+              arguments: ArgumentsRoute(widget.notebooks[widget.index]),
+            );
+          },
           trailing: const Icon(Icons.arrow_forward_ios),
         ),
       ),
