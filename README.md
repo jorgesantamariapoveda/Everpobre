@@ -1,4 +1,4 @@
-# 01 Everpobre
+# Everpobre
 
 Everpobre es la versión Evernote para pobres. Simula una lista de Notebooks y dentro de cada uno de ellos a su vez hay una lista de Notes.
 

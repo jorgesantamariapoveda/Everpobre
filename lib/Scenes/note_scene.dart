@@ -42,7 +42,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                 controller: bodyTestController,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   RaisedButton(
                     color: Colors.grey,
