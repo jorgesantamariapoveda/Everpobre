@@ -1,4 +1,5 @@
 import 'package:everpobre/domain/notebook.dart';
+import 'package:everpobre/extensions/jsp_math.dart';
 
 class Notebooks {
   //! Singleton
@@ -12,12 +13,9 @@ class Notebooks {
   //! Constructor
   Notebooks();
   Notebooks.testDataBuilder() {
-    /*
-    _notebooks
-        .addAll(List.generate(10, (index) => Notebook("Item ${index + 1}")));
-*/
+    final int length = generateRandomPositive(10);
     _notebooks.addAll(List.generate(
-        10, (index) => Notebook.testDataBuilder("Notebook ${index + 1}")));
+        length, (index) => Notebook.testDataBuilder("Notebook ${index + 1}")));
   }
 
   //! Accesores

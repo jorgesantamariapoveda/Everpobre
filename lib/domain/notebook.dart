@@ -1,4 +1,5 @@
 import 'package:everpobre/domain/note.dart';
+import 'package:everpobre/extensions/jsp_math.dart';
 import 'package:flutter/material.dart';
 
 //! El ChangeNotifier es un mixin
@@ -18,7 +19,9 @@ class Notebook with ChangeNotifier {
   Notebook(String title) : _title = title;
   Notebook.testDataBuilder(String title) {
     _title = title;
-    _notes.addAll(List.generate(5, (index) => Note("Note $index + 1")));
+
+    final int length = generateRandomPositive(10);
+    _notes.addAll(List.generate(length, (index) => Note("Note $index + 1")));
   }
 
   //! Accesores
