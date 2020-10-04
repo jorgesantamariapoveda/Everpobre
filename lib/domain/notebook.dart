@@ -1,30 +1,26 @@
 import 'package:everpobre/domain/note.dart';
 import 'package:everpobre/extensions/jsp_math.dart';
+import 'package:everpobre/text_resources.dart';
 import 'package:flutter/material.dart';
 
 //! El ChangeNotifier es un mixin
 class Notebook with ChangeNotifier {
   //! Properties
-  // TODO el singleton habrá que borrarlo, quizás nos sirva la idea
-  // para crear un notebooks
-  //static final shared = Notebook();
-
   String _title = "";
   final List<Note> _notes = [];
 
   int get length => _notes.length;
   String get title => _title;
 
-  //! Constructores
+  //! Constructors
   Notebook(String title) : _title = title;
   Notebook.testDataBuilder(String title) {
     _title = title;
-
-    final int length = generateRandomPositive(10);
-    _notes.addAll(List.generate(length, (index) => Note("Note $index + 1")));
+    _notes.addAll(List.generate(generateRandomPositive(10),
+        (index) => Note("$TextResources.note $index + 1")));
   }
 
-  //! Accesores
+  //! Public functions
   Note operator [](int index) {
     //! Esto habría que plantearlo mejor
     /*
@@ -40,7 +36,7 @@ class Notebook with ChangeNotifier {
 
   //! Mutadores
   // En los mutadores serán los sitios donde pego el grito para que quién
-  // esté escuchando se entere que el modelo ha cambiado
+  // esté escuchando se entere de que el modelo ha cambiado
   bool remove(Note note) {
     final n = _notes.remove(note);
     notifyListeners();

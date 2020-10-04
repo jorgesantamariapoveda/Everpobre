@@ -1,24 +1,23 @@
 import 'package:everpobre/domain/notebook.dart';
 import 'package:everpobre/extensions/jsp_math.dart';
+import 'package:flutter/material.dart';
 
-class Notebooks {
+class Notebooks with ChangeNotifier {
   //! Singleton
   static final shared = Notebooks();
 
   //! Properties
   final List<Notebook> _notebooks = [];
-
   int get length => _notebooks.length;
 
   //! Constructor
   Notebooks();
   Notebooks.testDataBuilder() {
-    final int length = generateRandomPositive(10);
-    _notebooks.addAll(List.generate(
-        length, (index) => Notebook.testDataBuilder("Notebook ${index + 1}")));
+    _notebooks.addAll(List.generate(generateRandomPositive(5),
+        (index) => Notebook.testDataBuilder("Notebook ${index + 1}")));
   }
 
-  //! Accesores
+  //! Public functions
   Notebook operator [](int index) {
     //! Esto habría que plantearlo mejor
     /*
@@ -30,5 +29,10 @@ class Notebooks {
     }
     */
     return _notebooks[index];
+  }
+
+  void add(Notebook notebook) {
+    _notebooks.insert(0, notebook);
+    notifyListeners();
   }
 }

@@ -1,4 +1,5 @@
 import 'package:everpobre/domain/notebook.dart';
+import 'package:everpobre/text_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -17,12 +18,12 @@ class NotesListView extends StatefulWidget {
 }
 
 class _NotesListViewState extends State<NotesListView> {
-  //! Métodos privados
+  //! Private functions
   void _modelDidChange() {
     setState(() {});
   }
 
-  //! Ciclo de vida State
+  //! Life cycle
   @override
   void initState() {
     // aquí no podemos darnos de alta todavía porque en esto momento
@@ -88,8 +89,8 @@ class _NoteSliverState extends State<NoteSliver> {
       onDismissed: (direction) {
         widget.notebook.removeAt(widget.index);
         Scaffold.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Note has been deleted!"),
+          SnackBar(
+            content: Text(TextResources.noteDeleted),
           ),
         );
         setState(() {});
