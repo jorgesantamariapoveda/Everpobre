@@ -16,8 +16,9 @@ Everpobre es la versión Evernote para pobres. Simula una lista de Notebooks y d
 
 ### Mejoras sobre las especificaciones
 
-- En la lista de Notebooks se muestra el número de Notes.
+- En la lista de Notebooks se muestra el número de Notes. Dicho número de Notes se actualiza según se van añadiendo o borrando Notes.
 - En la lista de Notes se muestra en el `AppBar` el título del Notebook seleccionado.
+- Se crea un Widget de detalle de Note que permite editar su contenido, se usa `TextField`.
 - Se ha creado una función que genera de forma aleatorio el número de Notebooks y el número de Notes de cada uno de ellos. Asimismo tiene su propio test.
 - Se ha ampliado la clase _TextResources_ para que almacene todos los textos de la aplicación, de modo que se encuentren centralizados para su posterior localización y mantenimiento.
 - Todos las rutas de la aplicación se encuentran centralizadas para su fácil mantenimiento en _DescriptionRoute_. Asimismo la clase _ArgumentsRoute_ se encarga de encapsular la información que se envía entre escenas.

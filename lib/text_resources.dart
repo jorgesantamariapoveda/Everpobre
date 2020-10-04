@@ -9,4 +9,6 @@ abstract class TextResources {
   static String note = "Note";
 
   static String empty = "Empty";
+  static String cancel = "Cancel";
+  static String ok = "Ok";
 }

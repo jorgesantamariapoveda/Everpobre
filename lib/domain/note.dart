@@ -1,6 +1,7 @@
 import 'package:everpobre/extensions/date_time.dart';
+import 'package:flutter/material.dart';
 
-class Note {
+class Note with ChangeNotifier {
   //! Properties
   String _body = "";
 
@@ -8,6 +9,7 @@ class Note {
   set body(String newValue) {
     _body = newValue;
     _modificationDate = DateTime.now();
+    notifyListeners();
   }
 
   DateTime _creationDate;
@@ -61,8 +63,4 @@ class Note {
         _creationDate.second);
     return proxy.hashCode;
   }
-
-  /* Encasquetar ChangeNotifier y llamar a notifyListeners() cuando algo cambia
-  */
-
 }

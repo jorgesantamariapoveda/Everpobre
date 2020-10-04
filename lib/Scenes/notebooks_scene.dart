@@ -72,6 +72,24 @@ class NotebookWidgetCustom extends StatefulWidget {
 }
 
 class _NotebookWidgetCustomState extends State<NotebookWidgetCustom> {
+  //! Private functions
+  void _modelDidChange() {
+    setState(() {});
+  }
+
+  //! Life cycle
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    widget.notebooks[widget.index].addListener(_modelDidChange);
+  }
+
+  @override
+  void dispose() {
+    widget.notebooks[widget.index].removeListener(_modelDidChange);
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Dismissible(
@@ -81,9 +99,13 @@ class _NotebookWidgetCustomState extends State<NotebookWidgetCustom> {
       ),
       onDismissed: (direction) {
         widget.notebooks.removeAt(widget.index);
-        setState(() {});
         Scaffold.of(context).showSnackBar(
             SnackBar(content: Text(TextResources.notebookDeleted)));
+        setState(() {
+          // He tenido que añadirlo aquí y no en el dispose porque sino
+          // saltaba un assert por fuera de rango
+          widget.notebooks[widget.index].removeListener(_modelDidChange);
+        });
       },
       child: Card(
         child: ListTile(
@@ -94,7 +116,8 @@ class _NotebookWidgetCustomState extends State<NotebookWidgetCustom> {
             Navigator.pushNamed(
               context,
               NotebookWidget.routeName,
-              arguments: ArgumentsRoute(widget.notebooks[widget.index]),
+              arguments:
+                  ArgumentsRoute.notebook(widget.notebooks[widget.index]),
             );
           },
           trailing: const Icon(Icons.arrow_forward_ios),

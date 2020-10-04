@@ -7,6 +7,7 @@ import 'package:everpobre/route/arguments_route.dart';
 import 'package:everpobre/route/description_route.dart';
 import 'package:everpobre/text_resources.dart';
 import 'package:flutter/material.dart';
+import 'package:everpobre/Scenes/note_scene.dart';
 
 final Notebooks model = Notebooks.testDataBuilder();
 
@@ -22,6 +23,7 @@ class TreeBuilder extends StatelessWidget {
       routes: {
         NotebooksWidget.routeName: (context) => NotebooksWidget(),
         NotebookWidget.routeName: (context) => NotebookWidget(),
+        NoteWidget.routeName: (context) => NoteWidget(),
       },
       initialRoute: NotebooksWidget.routeName,
     );
@@ -62,7 +64,7 @@ class NotebookWidget extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("TextResources.appName"),
+        title: Text(arguments.notebook.title),
       ),
       body: NotesListView(arguments.notebook),
       floatingActionButton: FloatingActionButton(

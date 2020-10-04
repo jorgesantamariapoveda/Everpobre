@@ -2,6 +2,8 @@ import 'package:everpobre/domain/notebook.dart';
 import 'package:everpobre/text_resources.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:everpobre/Scenes/note_scene.dart';
+import 'package:everpobre/route/arguments_route.dart';
 
 class NotesListView extends StatefulWidget {
   //! Properties
@@ -80,6 +82,24 @@ class NoteSliver extends StatefulWidget {
 }
 
 class _NoteSliverState extends State<NoteSliver> {
+  //! Private functions
+  void _modelDidChange() {
+    setState(() {});
+  }
+
+  //! Life cycle
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    widget.notebook[widget.index].addListener(_modelDidChange);
+  }
+
+  @override
+  void dispose() {
+    widget.notebook[widget.index].removeListener(_modelDidChange);
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final DateFormat fmt = DateFormat("yyyy-mm-dd");
@@ -100,6 +120,13 @@ class _NoteSliverState extends State<NoteSliver> {
       ),
       child: Card(
         child: ListTile(
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              NoteWidget.routeName,
+              arguments: ArgumentsRoute.note(widget.notebook[widget.index]),
+            );
+          },
           leading: const Icon(Icons.toc),
           title: Text(widget.notebook[widget.index].body),
           subtitle:

@@ -17,7 +17,7 @@ class Notebook with ChangeNotifier {
   Notebook.testDataBuilder(String title) {
     _title = title;
     _notes.addAll(List.generate(generateRandomPositive(10),
-        (index) => Note("$TextResources.note $index + 1")));
+        (index) => Note("${TextResources.note} ${index + 1}")));
   }
 
   //! Public functions
