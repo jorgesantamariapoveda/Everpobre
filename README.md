@@ -1,10 +1,11 @@
-# Everpobre
+## Objetivo
 
-Everpobre es la versión Evernote para pobres. Simula una lista de Notebooks y dentro de cada uno de ellos a su vez hay una lista de Notes.
+Aplicar los fundamentos de **Flutter** en el desarrollo de aplicaciones móviles como alternativa a las tecnologías nativas.
 
-## Tecnologías
+Para ello se ha implementado una versión súper reducida de *Evernote*. Simula una lista de Notebooks y dentro de cada uno de ellos a su vez hay una lista de Notes.
 
-- Dart / Flutter
+- [Dart](https://dart.dev/)
+- [Flutter](https://flutter.dev/)
 - Visual Studio Code
 
 ## Especificaciones
